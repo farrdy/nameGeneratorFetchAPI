@@ -45,7 +45,7 @@ function loadNames(e) {
                     html += '</ul>';
                     document.querySelector('#result').innerHTML = html;
                     spinner.style.display = "none";
-               }, 5000);
+               }, 3000);
 
           }).
           catch(function (error) {
