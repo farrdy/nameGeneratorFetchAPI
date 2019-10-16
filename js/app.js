@@ -35,8 +35,6 @@ function loadNames(e) {
                return response.json();
           }).then(function (names) {
 
-
-
                setTimeout(() => {
 
                     let html = '<h2>Genereted names </h2>';
