@@ -1,7 +1,7 @@
 document.querySelector('#generate-names').addEventListener('submit', loadNames);
 const spinner = document.querySelector("#loading img");
 
-
+const myResult = document.querySelector('#result');
 // Execute the function to query the API
 function loadNames(e) {
      e.preventDefault();
@@ -32,6 +32,9 @@ function loadNames(e) {
      fetch(url)
           .then(function (response) {
                spinner.style.display = "block";
+               myResult.style.display = 'none';
+
+
                return response.json();
           }).then(function (names) {
 
@@ -39,11 +42,12 @@ function loadNames(e) {
 
                     let html = '<h2>Genereted names </h2>';
                     html += '<ul class="list">';
-                    names.forEach(function (name) {
-                         html += `<li>${name.name}</li>`;
+                    names.forEach(function (i) {
+                         html += `<li>${i.name}</li>`;
                     });
                     html += '</ul>';
                     document.querySelector('#result').innerHTML = html;
+                    myResult.style.display = 'block';
                     spinner.style.display = "none";
                }, 3000);
 
